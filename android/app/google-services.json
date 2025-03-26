@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "929584401155",
+    "project_id": "honey-comp",
+    "storage_bucket": "honey-comp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929584401155:android:93456a2d7fef8c49f23736",
+        "android_client_info": {
+          "package_name": "com.example.honey_comp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929584401155-bbhfft7m5vpdtfuu84cliiffr5t2ee2r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.honey_comp",
+            "certificate_hash": "bf35599a9759fb8759a61ceccd414ceccd61540c"
+          }
+        },
+        {
+          "client_id": "929584401155-a5nur6u0ukpscum9mg6oet7i2495ec2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFeh-0EX5iOhXj3fpVb2ryvIYVMdoeW7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929584401155-a5nur6u0ukpscum9mg6oet7i2495ec2b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "929584401155-dt5tpjgdokkga8ae651fuvc5ddm8unq3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.honeyComp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929584401155:android:b24bd4e40b8c9fbbf23736",
+        "android_client_info": {
+          "package_name": "com.example.honey_comp_dashboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929584401155-a5nur6u0ukpscum9mg6oet7i2495ec2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFeh-0EX5iOhXj3fpVb2ryvIYVMdoeW7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929584401155-a5nur6u0ukpscum9mg6oet7i2495ec2b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "929584401155-dt5tpjgdokkga8ae651fuvc5ddm8unq3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.honeyComp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
