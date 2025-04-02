@@ -22,6 +22,8 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
   late String name, code, description;
   late num price;
   File? image;
+  late int expirationMonths, numOfCalories, unitAmount;
+  bool isOrganic = false;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +62,30 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               SizedBox(height: 16),
               CustomTextFormField(
                 onSaved: (value) {
+                  unitAmount = int.parse(value!);
+                },
+                hintText: "Product Unit Amount",
+                keyboardType: TextInputType.number,
+              ),
+              SizedBox(height: 16),
+              CustomTextFormField(
+                onSaved: (value) {
+                  numOfCalories = int.parse(value!);
+                },
+                hintText: "Product Num Of Calories",
+                keyboardType: TextInputType.number,
+              ),
+              SizedBox(height: 16),
+              CustomTextFormField(
+                onSaved: (value) {
+                  expirationMonths = int.parse(value!);
+                },
+                hintText: "Product Expiration Months",
+                keyboardType: TextInputType.number,
+              ),
+              SizedBox(height: 16),
+              CustomTextFormField(
+                onSaved: (value) {
                   description = value!;
                 },
                 hintText: "Product Description",
@@ -75,6 +101,19 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                       onChanged: (value) {
                         setState(() {
                           isChecked = value!;
+                        });
+                      }),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Is This Product Organic ?"),
+                  Checkbox(
+                      value: isOrganic,
+                      onChanged: (value) {
+                        setState(() {
+                          isOrganic = value!;
                         });
                       }),
                 ],
@@ -97,7 +136,10 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                             isFeatured: isChecked,
                             price: price,
                             image: image!,
-                        );
+                            unitAmount: unitAmount,
+                            numOfCalories: numOfCalories,
+                            expirationMonths: expirationMonths,
+                            isOrganic: isOrganic);
                         context.read<AddProductCubit>().addProduct(input);
                       } else {
                         autoValidateMode = AutovalidateMode.always;

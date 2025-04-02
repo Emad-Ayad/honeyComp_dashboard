@@ -18,8 +18,8 @@ class AddProductCubit extends Cubit<AddProductState> {
     var result = await imageRepo.uploadImage(addProductInputEntity.image);
 
     result.fold(
-          (f) => emit(AddProductFailure(errMsg: f.errMessage)),
-          (url) async {
+      (f) => emit(AddProductFailure(errMsg: f.errMessage)),
+      (url) async {
         final updatedEntity = AddProductInputEntity(
           name: addProductInputEntity.name,
           code: addProductInputEntity.code,
@@ -27,13 +27,17 @@ class AddProductCubit extends Cubit<AddProductState> {
           isFeatured: addProductInputEntity.isFeatured,
           price: addProductInputEntity.price,
           image: addProductInputEntity.image,
+          expirationMonths: addProductInputEntity.expirationMonths,
+          numOfCalories: addProductInputEntity.numOfCalories,
+          unitAmount: addProductInputEntity.unitAmount,
+          isOrganic: addProductInputEntity.isOrganic,
           imageUrl: url,
         );
 
         var result = await productsRepo.addProduct(updatedEntity);
         result.fold(
-              (f) => emit(AddProductFailure(errMsg: f.errMessage)),
-              (r) => emit(AddProductSuccess()),
+          (f) => emit(AddProductFailure(errMsg: f.errMessage)),
+          (r) => emit(AddProductSuccess()),
         );
       },
     );
