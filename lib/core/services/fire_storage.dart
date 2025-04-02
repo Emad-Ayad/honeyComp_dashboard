@@ -13,20 +13,15 @@ class FireStorage implements StorageService {
     String path,
   ) async {
     try {
-      // Validate the file
       if (!await file.exists()) {
         throw Exception('File does not exist');
       }
-      // Extract filename and extension safely
-      final fileName = p.basenameWithoutExtension(file.path);
-      final extension =
-          p.extension(file.path); // Includes the dot (e.g., ".jpg")
-      // Upload to Firebase Storage
-      final storageRef =
-          FirebaseStorage.instance.ref('$path/$fileName$extension');
-      await storageRef.putFile(file);
-      // Get the download URL
-      return await storageRef.getDownloadURL();
+      String fileName = p.basename(file.path);
+      String extension = p.extension(file.path);
+      var imageRef = storageRef.child('$path/$fileName.$extension');
+      await imageRef.putFile(file);
+      var imageUrl = imageRef.getDownloadURL();
+      return imageUrl;
     } on FirebaseException catch (e) {
       throw Exception('Firebase upload failed: ${e.message}');
     } catch (e) {

@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honey_comp_dashboard/core/widgets/custom_button.dart';
 import 'package:honey_comp_dashboard/core/widgets/custom_text_form_field.dart';
 import 'package:honey_comp_dashboard/core/widgets/image_field.dart';
 import 'package:honey_comp_dashboard/features/add_product/domain/add_product_input_entity.dart';
+import 'package:honey_comp_dashboard/features/add_product/presentation/manger/cubit/add_product_cubit.dart';
 
 class AddProductViewBody extends StatefulWidget {
   const AddProductViewBody({super.key});
@@ -93,7 +95,10 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                             code: code,
                             description: description,
                             isFeatured: isChecked,
-                            price: price);
+                            price: price,
+                            image: image!,
+                        );
+                        context.read<AddProductCubit>().addProduct(input);
                       } else {
                         autoValidateMode = AutovalidateMode.always;
                         setState(() {});
