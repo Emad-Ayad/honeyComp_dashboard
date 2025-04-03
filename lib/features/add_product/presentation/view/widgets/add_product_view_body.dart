@@ -5,7 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honey_comp_dashboard/core/widgets/custom_button.dart';
 import 'package:honey_comp_dashboard/core/widgets/custom_text_form_field.dart';
 import 'package:honey_comp_dashboard/core/widgets/image_field.dart';
+import 'package:honey_comp_dashboard/features/add_product/data/models/review_model.dart';
 import 'package:honey_comp_dashboard/features/add_product/domain/add_product_input_entity.dart';
+import 'package:honey_comp_dashboard/features/add_product/domain/review_entity.dart';
 import 'package:honey_comp_dashboard/features/add_product/presentation/manger/cubit/add_product_cubit.dart';
 
 class AddProductViewBody extends StatefulWidget {
@@ -139,7 +141,16 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                             unitAmount: unitAmount,
                             numOfCalories: numOfCalories,
                             expirationMonths: expirationMonths,
-                            isOrganic: isOrganic);
+                            isOrganic: isOrganic,
+                            reviews: [
+                              ReviewEntity(
+                                  name: 'Omda',
+                                  image:
+                                      'https://mawasem-eg.com/wp-content/uploads/2021/05/%D8%B9%D8%B3%D9%84-%D8%B3%D8%AF%D8%B1.jpg',
+                                  date: DateTime.now().toIso8601String(),
+                                  ratting: 5,
+                                  review: "Nice one")
+                            ]);
                         context.read<AddProductCubit>().addProduct(input);
                       } else {
                         autoValidateMode = AutovalidateMode.always;

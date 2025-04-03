@@ -20,21 +20,8 @@ class AddProductCubit extends Cubit<AddProductState> {
     result.fold(
       (f) => emit(AddProductFailure(errMsg: f.errMessage)),
       (url) async {
-        final updatedEntity = AddProductInputEntity(
-          name: addProductInputEntity.name,
-          code: addProductInputEntity.code,
-          description: addProductInputEntity.description,
-          isFeatured: addProductInputEntity.isFeatured,
-          price: addProductInputEntity.price,
-          image: addProductInputEntity.image,
-          expirationMonths: addProductInputEntity.expirationMonths,
-          numOfCalories: addProductInputEntity.numOfCalories,
-          unitAmount: addProductInputEntity.unitAmount,
-          isOrganic: addProductInputEntity.isOrganic,
-          imageUrl: url,
-        );
-
-        var result = await productsRepo.addProduct(updatedEntity);
+        addProductInputEntity.imageUrl = url;
+        var result = await productsRepo.addProduct(addProductInputEntity);
         result.fold(
           (f) => emit(AddProductFailure(errMsg: f.errMessage)),
           (r) => emit(AddProductSuccess()),

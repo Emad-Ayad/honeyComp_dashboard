@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:honey_comp_dashboard/features/add_product/domain/review_entity.dart';
+
 class AddProductInputEntity {
   final String name, code, description;
   final num price;
@@ -12,6 +14,7 @@ class AddProductInputEntity {
   final num avgRate = 0;
   final num ratingCount = 0 ;
   final int unitAmount;
+  final List<ReviewEntity> reviews;
 
   AddProductInputEntity(
       {required this.name,
@@ -23,6 +26,7 @@ class AddProductInputEntity {
       required this.expirationMonths,
       required this.numOfCalories,
       required this.unitAmount,
+      required this.reviews,
       this.isOrganic=false,
       this.imageUrl});
 }
