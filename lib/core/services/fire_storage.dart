@@ -4,6 +4,7 @@ import 'package:honey_comp_dashboard/core/services/storage_service.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path/path.dart' as p;
 
+// Don't need it anymore but it was nice one
 class FireStorage implements StorageService {
   final storageRef = FirebaseStorage.instance.ref();
 
