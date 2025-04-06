@@ -9,10 +9,9 @@ class AddProductInputEntity {
   final File image;
   String? imageUrl;
   final int expirationMonths;
-  final bool isOrganic ;
+  final bool isOrganic;
+
   final int numOfCalories;
-  final num avgRate = 0;
-  final num ratingCount = 0 ;
   final int unitAmount;
   final List<ReviewEntity> reviews;
 
@@ -27,6 +26,6 @@ class AddProductInputEntity {
       required this.numOfCalories,
       required this.unitAmount,
       required this.reviews,
-      this.isOrganic=false,
+      this.isOrganic = false,
       this.imageUrl});
 }

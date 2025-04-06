@@ -15,6 +15,7 @@ class AddProductInputModel {
   final int numOfCalories;
   final num avgRate = 0;
   final num ratingCount = 0;
+  final int sellingCount;
 
   final int unitAmount;
   final List<ReviewModel> reviews;
@@ -29,6 +30,7 @@ class AddProductInputModel {
       required this.expirationMonths,
       required this.numOfCalories,
       required this.unitAmount,
+      this.sellingCount = 0,
       required this.isOrganic,
       required this.reviews,
       this.imageUrl});
@@ -36,20 +38,20 @@ class AddProductInputModel {
   factory AddProductInputModel.fromEntity(
       AddProductInputEntity addProductInputEntity) {
     return AddProductInputModel(
-      name: addProductInputEntity.name,
-      code: addProductInputEntity.code,
-      description: addProductInputEntity.description,
-      isFeatured: addProductInputEntity.isFeatured,
-      price: addProductInputEntity.price,
-      image: addProductInputEntity.image,
-      imageUrl: addProductInputEntity.imageUrl,
-      expirationMonths: addProductInputEntity.expirationMonths,
-      numOfCalories: addProductInputEntity.numOfCalories,
-      isOrganic: addProductInputEntity.isOrganic,
-      unitAmount: addProductInputEntity.unitAmount,
-      reviews: addProductInputEntity.reviews
-          .map((e) => ReviewModel.fromEntity(e))
-          .toList(),
+        name: addProductInputEntity.name,
+        code: addProductInputEntity.code,
+        description: addProductInputEntity.description,
+        isFeatured: addProductInputEntity.isFeatured,
+        price: addProductInputEntity.price,
+        image: addProductInputEntity.image,
+        imageUrl: addProductInputEntity.imageUrl,
+        expirationMonths: addProductInputEntity.expirationMonths,
+        numOfCalories: addProductInputEntity.numOfCalories,
+        isOrganic: addProductInputEntity.isOrganic,
+        unitAmount: addProductInputEntity.unitAmount,
+        reviews: addProductInputEntity.reviews
+            .map((e) => ReviewModel.fromEntity(e))
+            .toList(),
     );
   }
 
@@ -64,6 +66,7 @@ class AddProductInputModel {
       "expirationMonths": expirationMonths,
       "numOfCalories": numOfCalories,
       "unitAmount": unitAmount,
+      "sellingCount": sellingCount,
       "isOrganic": isOrganic,
       "reviews": reviews.map((e) => e.toJson()).toList()
     };
